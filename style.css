@@ -261,6 +261,10 @@ button.rak:hover {
 		flex-direction: column;
 	}
 
+	#checkbox {
+		margin-top: 5px;
+	}
+
 	.right {
 		margin-top: 20px;
 	}
