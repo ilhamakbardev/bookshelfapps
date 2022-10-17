@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- icon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- title & title-logo -->
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M3 18.5V5a3 3 0 0 1 3-3h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5A3.5 3.5 0 0 1 3 18.5zM19 20v-3H6.5a1.5 1.5 0 0 0 0 3H19zM10 4H6a1 1 0 0 0-1 1v10.337A3.486 3.486 0 0 1 6.5 15H19V4h-2v8l-3.5-2-3.5 2V4z' fill='rgba(255,255,255,1)'/%3E%3C/svg%3E"
+        type="image/x-icon">
+    <title>Bookshelf Apps | Ilham</title>
+</head>
+
+<body>
+
+    <div class="grand-container">
+        <div class="main-title">
+            <h1 class="title">Bookshelf Apps</h1>
+        </div>
+        <div class="container">
+            <div class="left">
+                <p class="subtitle">Masukkan buku</p>
+                <div class="input-container">
+                    <input id="judul-buku" class="input" type="text" placeholder=" " />
+                    <div class="cut"></div>
+                    <label for="judul-buku" class="placeholder">Judul Buku</label>
+                </div>
+                <div class="input-container">
+                    <input id="penulis-buku" class="input" type="text" placeholder=" " />
+                    <div class="cut"></div>
+                    <label for="penulis-buku" class="placeholder">Penulis Buku</label>
+                </div>
+                <div class="input-container">
+                    <input id="tahun-terbit" class="input" type="number" placeholder=" " />
+                    <div class="cut cut-short"></div>
+                    <label for="tahun-terbit" class="placeholder">Tahun Terbit</label>
+                </div>
+
+                <div class="input-container-checkbox">
+                    <input id="checkbox" type="checkbox" value="false" />
+                    <p>Buku selesai dibaca</p>
+                </div>
+
+
+                <button type="text" id="masukkan-rak" class="submit">Masukkan ke rak</button>
+            </div>
+            <div class="right">
+                <div class="right-child right-cari-buku">
+                    <p class="subtitle">Cari buku</p>
+                    <div class="input-container input-cari">
+                        <div class="container-dalam-cari">
+                            <input id="search-judul-buku" class="input" type="text" placeholder=" " />
+                            <div class="cut"></div>
+                            <label for="search-judul-buku" class="placeholder">Judul buku</label>
+                        </div>
+                        <button type="text" id="button-cari" class="button-cari">
+                            <i class="ri-search-line"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="right-child right-belum-selesai">
+                    <p class="subtitle">Belum selesai dibaca</p>
+                    <div id="belum-dibaca">
+
+                    </div>
+                </div>
+                <div class="right-child right-sudah-selesai">
+                    <p class="subtitle">Selesai dibaca</p>
+                    <div id="sudah-dibaca">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
