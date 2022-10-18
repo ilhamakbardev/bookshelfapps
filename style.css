@@ -2,7 +2,7 @@
 	box-sizing: border-box;
 	font-family: "Roboto Condensed", sans-serif;
 	color: white;
-	/* border: 1px solid white; */
+	border: 1px solid white;
 }
 
 body {
@@ -125,8 +125,9 @@ body {
 
 .input-container-checkbox {
 	width: 100%;
-	margin: 15 0 0 0px;
+	margin: 20px 0 0 0;
 	display: flex;
+	height: fit-content;
 }
 
 input::-webkit-outer-spin-button,
@@ -262,9 +263,9 @@ button.rak:hover {
 		width: 100%;
 	}
 
-	/* #checkbox {
-		margin-top: 18px;
-	} */
+	#button-cari {
+		width: 50px;
+	}
 
 	.left,
 	.right {
@@ -273,5 +274,9 @@ button.rak:hover {
 
 	.right {
 		margin-top: 20px;
+	}
+
+	#masukkan-rak {
+		margin-top: 30px;
 	}
 }
