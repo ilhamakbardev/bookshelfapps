@@ -219,6 +219,12 @@ function searchBook() {
 	}
 }
 
+function resetForm() {
+	document.getElementById("judul-buku").value = "";
+	document.getElementById("penulis-buku").value = "";
+	document.getElementById("tahun-terbit").value = "";
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 	const inputBook = document.getElementById("masukkan-rak");
 	const inputSearchBook = document.getElementById("button-cari");
@@ -227,6 +233,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	inputBook.addEventListener("click", function (event) {
 		event.preventDefault();
 		addBook();
+		resetForm();
 	});
 
 	inputSearchBook.addEventListener("keyup", function (event) {
