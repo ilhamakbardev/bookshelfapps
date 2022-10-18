@@ -2,7 +2,7 @@
 	box-sizing: border-box;
 	font-family: "Roboto Condensed", sans-serif;
 	color: white;
-	/* border: 1px solid white; */
+	border: 1px solid white;
 }
 
 body {
@@ -259,10 +259,16 @@ button.rak:hover {
 
 	.container {
 		flex-direction: column;
+		width: 100%;
 	}
 
-	#checkbox {
+	/* #checkbox {
 		margin-top: 18px;
+	} */
+
+	.left,
+	.right {
+		margin-inline: 0px;
 	}
 
 	.right {
