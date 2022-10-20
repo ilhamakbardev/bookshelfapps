@@ -1,0 +1,23 @@
+{
+	"name": "submissiondicoding",
+	"version": "1.0.0",
+	"description": "submission dicoding revisi",
+	"main": "script.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ILHAM2134/bookshelfapps.git"
+	},
+	"author": "ilham",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/ILHAM2134/bookshelfapps/issues"
+	},
+	"homepage": "https://github.com/ILHAM2134/bookshelfapps#readme",
+	"dependencies": {
+		"sweetalert2": "^11.6.0"
+	}
+}

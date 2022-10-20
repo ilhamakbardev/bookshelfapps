@@ -2,7 +2,6 @@
 	box-sizing: border-box;
 	font-family: "Roboto Condensed", sans-serif;
 	color: white;
-	/* border: 1px solid white; */
 }
 
 body {
@@ -225,7 +224,7 @@ p#checkbox {
 
 button.rak {
 	background-color: #08d;
-	padding: 5px 10px;
+	padding: 5px 2px;
 	margin-inline-end: 10px;
 	border: 0;
 	font-size: 14px;

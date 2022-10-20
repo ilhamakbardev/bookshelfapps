@@ -105,27 +105,38 @@ function createBook(title, author, year, isComplete) {
 }
 
 function createUndoButton() {
-	return createButton("rak", "Belum selesai dibaca", function (event) {
+	return createButton("rak", "undo", "Baca kembali", function (event) {
 		undo(event.target.parentElement.parentElement);
 	});
 }
 
 function createTrashButton() {
-	return createButton("rak", "Hapus buku", function (event) {
+	return createButton("rak", "trash", "Hapus buku", function (event) {
 		removeBook(event.target.parentElement.parentElement);
 	});
 }
 
 function createCheckButton() {
-	return createButton("rak", "Selesai dibaca", function (event) {
+	return createButton("rak", "check", "Selesai dibaca", function (event) {
 		addBookToCompleted(event.target.parentElement.parentElement);
 	});
 }
 
-function createButton(buttonTypeClass, buttonText, eventListener) {
+function createButton(buttonTypeClass, buttonId, buttonText, eventListener) {
 	const button = document.createElement("button");
-	button.innerText = buttonText;
 	button.classList.add(buttonTypeClass);
+
+	if (buttonId == "trash") {
+		button.innerHTML = `<i class="ri-delete-bin-5-line"></i>
+		${buttonText}`;
+	} else if (buttonId == "undo") {
+		button.innerHTML = `<i class="ri-arrow-go-back-line"></i>
+		${buttonText}`;
+	} else if (buttonId == "check") {
+		button.innerHTML = `<i class="ri-check-line"></i>
+		${buttonText}`;
+	}
+
 	button.addEventListener("click", function (event) {
 		eventListener(event);
 	});
@@ -174,17 +185,24 @@ function addBookToCompleted(bookElement) {
 }
 
 function removeBook(bookElement) {
-	const isDelete = window.confirm("Apakah yakin ingin menghapus buku ini?");
-	if (isDelete) {
-		const bookPosition = findBookIndex(bookElement[bookItemId]);
-		books.splice(bookPosition, 1);
+	Swal.fire({
+		title: "apakah yakin ingin menghapus buku ini?",
+		text: "setelah dihapus, buku tidak bisa kembai lagi",
+		icon: "error",
+		showCancelButton: true,
+		confirmButtonColor: "#3085d6",
+		cancelButtonColor: "#d33",
+		confirmButtonText: "Ya, saya yakin",
+	}).then((result) => {
+		if (result.isConfirmed) {
+			const bookPosition = findBookIndex(bookElement[bookItemId]);
+			books.splice(bookPosition, 1);
 
-		bookElement.remove();
-		updateDataToStorage();
-		alert("Buku berhasil dihapus");
-	} else {
-		alert("Buku gagal dihapus");
-	}
+			bookElement.remove();
+			updateDataToStorage();
+			Swal.fire("Terhapus!", "Buku berhasil dihapus", "success");
+		}
+	});
 }
 
 function undo(bookElement) {
@@ -225,6 +243,18 @@ function resetForm() {
 	document.getElementById("tahun-terbit").value = "";
 }
 
+function validateFormData() {
+	const bookTitle = document.getElementById("judul-buku").value;
+	const bookAuthor = document.getElementById("penulis-buku").value;
+	const bookYear = document.getElementById("tahun-terbit").value;
+
+	if (bookTitle != "" && bookAuthor != "" && bookYear != "") {
+		return true;
+	} else {
+		return false;
+	}
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 	const inputBook = document.getElementById("masukkan-rak");
 	const inputSearchBook = document.getElementById("button-cari");
@@ -232,8 +262,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	inputBook.addEventListener("click", function (event) {
 		event.preventDefault();
-		addBook();
-		resetForm();
+
+		if (validateFormData()) {
+			addBook();
+			resetForm();
+
+			Swal.fire({
+				icon: "success",
+				title: "Success",
+				text: "buku berhasil ditambahkan",
+			});
+		} else {
+			Swal.fire({
+				icon: "error",
+				title: "data belum lengkap...",
+				text: "masukkan data buku secara lengkap",
+			});
+		}
 	});
 
 	inputSearchBook.addEventListener("keyup", function (event) {
